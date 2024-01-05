@@ -6,13 +6,22 @@ from sklearn.model_selection import train_test_split
 time_studied = np.array([20, 50, 32, 65, 23, 43, 10, 5, 22, 35, 29, 5, 56]).reshape(-1, 1)
 scores = np.array([56, 83, 47, 93, 47, 82, 45, 23, 55, 67, 57, 4, 89]).reshape(-1, 1)
 
+# Create a linear regression model
 model = LinearRegression()
+
+# Fit the model to the data, i.e. train the model
 model.fit(time_studied, scores)
 
+# Predict score for 56 hours
 print(model.predict(np.array([56]).reshape(-1, 1)))
 
+# Plot the data points
 plt.scatter(time_studied, scores)
+
+# Plot a red line
 plt.plot(np.linspace(0, 70, 100).reshape(-1, 1), model.predict(np.linspace(0, 70, 100).reshape(-1, 1)), 'r')
+
+# Set the x and y limits
 plt.ylim(0, 100)
 plt.show()
 
